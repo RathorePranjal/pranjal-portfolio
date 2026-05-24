@@ -5013,7 +5013,8 @@ export default function PolymathOS() {
       if (data.success) {
         target.reset();
       } else {
-        alert("Oops! Something went wrong. Please try again.");
+        console.warn("Web3Forms error response:", data);
+        alert(`Oops! Something went wrong: ${data.message || "Please try again."}`);
         setFormStatus("idle");
       }
     } catch (err) {
