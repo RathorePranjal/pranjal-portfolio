@@ -4998,8 +4998,9 @@ export default function PolymathOS() {
     
     // Web3Forms submission setup
     const formData = new FormData(target);
-    // Web3Forms Access Key placeholder
-    formData.append("access_key", "YOUR_ACCESS_KEY_HERE");
+    // Use environment variable for Web3Forms Access Key, fallback to placeholder
+    const accessKey = import.meta.env.VITE_WEB3FORMS_ACCESS_KEY || "YOUR_ACCESS_KEY_HERE";
+    formData.append("access_key", accessKey);
 
     setFormStatus("sent");
 
